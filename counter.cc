@@ -54,8 +54,8 @@ int main(int argc, char **argv)
 int countLine(string input)
 {   
    int count = 0;
-    const char * p = &inputFile[0];
-    for ( int i = 0; i < inputFile.size(); i++ ) {
+    const char * p = &input[0];
+    for ( int i = 0; i < input.size(); i++ ) {
         if ( p[i] == '\n' ) {
             count++;
         }
