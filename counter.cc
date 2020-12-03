@@ -12,19 +12,30 @@ int countChar(string input);
 
 int main(int argc, char **argv)
 {
-    if( argc == 0)
-    {
-        countLine("Ohio University");
-        countChar("Athens");
-    }else{
 
-        cout << countLine(argv[0]) << "is the number of lines \n";
+    if (argc == 1)
+    {
+        cout << countLine("Ohio University \n") << " Lines" << endl;
+        cout << countChar("Athens") << " Characters";
+    }else{
+        
+        ifstream textFile(argv[1]);
+        string input((std::istreambuf_iterator<char>(textFile)), std::istreambuf_iterator<char>());
+        cout << countLine(input) << " Lines" << endl;
+        cout << countChar(input) << " Characters " << endl;
     }
 }
 
 int countLine(string inputFile)
 {   
-    ifstream input;
+   int count = 0;
+    const char * p = &inputFile[0];
+    for ( int i = 0; i < inputFile.size(); i++ ) {
+        if ( p[i] == '\n' ) {
+            count++;
+        }
+    }  
+   /* ifstream input;
     input.open(inputFile);
     string holder;
     int count = 0;
@@ -37,12 +48,11 @@ int countLine(string inputFile)
         }
     }
 
-
+*/
     return count;
 }
 
-int countChar(string inputFile)
+int countChar(string input)
 {
-    
-    return 0;
+    return input.size();
 }
