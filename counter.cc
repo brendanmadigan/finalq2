@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     if (argc == 1)
     {
         cout << countLine("Ohio University \n") << " Lines" << endl;
-        cout << countChar("Athens") << " Characters";
+        cout << countChar("Athens") << " Characters" << endl;
     }else{
         
         ifstream textFile(argv[1]);
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     }
 }
 
-int countLine(string inputFile)
+int countLine(string input)
 {   
    int count = 0;
     const char * p = &inputFile[0];
